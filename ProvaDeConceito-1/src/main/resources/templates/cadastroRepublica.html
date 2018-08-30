@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	  <!-- xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"> -->
+<head>
+	<title>Cadastro</title>
+</head>
+	<body>
+		
+		<header>
+			<h3>Cadastro de Usuários</h3>
+		</header>
+		
+		<form th:action = "@{/cadastroRepublica}" th:object = "${republica}" method="POST">
+		
+			<label>Nome:</label>
+		    <input th:field="*{nome}" type="text" name="nome_republica" id="nome_republica">
+		    <br/>
+		    
+			<label>Email:</label>
+			<input th:field = "*{email}" type="email" name="username" id="username">
+			<br>
+			
+			<label>Endereco:</label>
+			<input th:field = "*{endereco}" type="text" name="enderco" id="endereco">
+			<br>
+			
+			<label>Lotacao:</label>
+			<input th:field = "*{lotacao}" type="number" name="lotacao" id="lotacao">
+			<br>
+			
+			<label>Valor das Despesas:</label>
+			<input th:field = "*{valorDespesas}" type="number" name="valorDespesas" id="valorDespesas">
+			<br>
+			
+			<label>Valor do Alugel:</label>
+			<input th:field ="*{valorAluguel}" type="number" name="valorAluguel" id="valorAluguel">
+			<br>
+			<br>
+			<button type="submit">Cadastrar sua republica</button>
+			
+		</form>
+	
+	</body>
+
+</html>

@@ -1,4 +1,4 @@
-package com.ufv.suarepublica.models;
+package br.com.ufv.provaConceito.Models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,6 +32,9 @@ public class Republica {
 	private float valorDespesas;
 	private float valorAluguel;
 	
+	public Republica() {
+		
+	}
 	
 	
 	

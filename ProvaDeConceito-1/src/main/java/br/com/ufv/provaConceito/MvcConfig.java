@@ -1,4 +1,4 @@
-package com.ufv.suarepublica;
+package br.com.ufv.provaConceito;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
