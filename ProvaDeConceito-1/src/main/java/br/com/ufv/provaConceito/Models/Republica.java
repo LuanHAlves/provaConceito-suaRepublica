@@ -10,7 +10,6 @@ import javax.validation.constraints.Email;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-@SuppressWarnings("deprecation")
 @Entity
 @Table(name= "Republica")
 public class Republica {
@@ -60,6 +59,7 @@ public class Republica {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getEmail() {
 		return email;
 	}

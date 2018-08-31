@@ -16,6 +16,6 @@ public interface RepublicaRepository extends JpaRepository<Republica, Integer>{
 	@Modifying
 	@Transactional
 	@Query(value = "INSERT INTO republica VALUES (?, ?, ?, ?, ?, ?, ?)", nativeQuery = true)
-    public int querySave(int id,String email, String endereco, int lotacao, String nome, float valorAluguel, float valorDespesas);
+    public int querySave(int id, String email, String endereco, int lotacao, String nome, float valorAluguel, float valorDespesas);
 
 }

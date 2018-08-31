@@ -31,7 +31,17 @@ public class RepublicaFrontController {
 	@RequestMapping(value = {"/cadastroRepublica"}, method = RequestMethod.POST)
 	public ModelAndView cadastrarRepublica(@Valid Republica republica, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		ModelAndView modelAndView = new ModelAndView();
-		republicaRepo.querySave(republica.getId(), republica.getEmail(), republica.getEndereco(), republica.getLotacao(), republica.getNome(), republica.getValorAluguel(), republica.getValorDespesas());
+//		republicaRepo.querySave(republica.getId(), republica.getEmail(), republica.getEndereco(), republica.getLotacao(), republica.getNome(), republica.getValorAluguel(), republica.getValorDespesas());
+		
+		republicaRepo.querySave(republica.getId(),
+								republica.getEmail(), 
+								republica.getEndereco(), 
+								republica.getLotacao(), 
+								republica.getNome(), 
+								republica.getValorAluguel(), 
+								republica.getValorDespesas()
+		);
+		
 //		republicaRepo.save(republica);
 		modelAndView.setViewName("redirect:/cadastroRepublica");
 		
