@@ -37,10 +37,9 @@ public class Republica {
 	}
 	
 	
-	
 	public Republica(
 			@Email(message = "*Insira um email valido") 
-			@NotEmpty(message = "*Esta campo deve ser preenchido") 
+			@NotEmpty(message = "*Este campo deve ser preenchido") 
 			String email,
 			String nome, String endereco, String proprietario, int lotacao, float valorDespesas, float valorAluguel) {
 
@@ -96,8 +95,5 @@ public class Republica {
 	}
 	public void setValorAluguel(float valorAluguel) {
 		this.valorAluguel = valorAluguel;
-	}
-	
-	
-	
+	}	
 }
