@@ -42,7 +42,7 @@
                     <form th:action="@{/registro}" method="post" th:object="${user}">
                         <div class="form-group">
                             <label>Nome do usuário</label>
-                            <input type="text" th:field="*{nomeUsuario}" class="form-control" placeholder="Seu nome">
+                            <input type="text" th:field="*{nomeUsuario}" class="form-control" placeholder="Escolha um nome de usuário">
                         	<label style="font-size: 20; color: #FF1C19;" th:if="${#fields.hasErrors('nomeUsuario')}" th:errors="*{nomeUsuario}"
 											class="validation-message"></label>
                         </div>

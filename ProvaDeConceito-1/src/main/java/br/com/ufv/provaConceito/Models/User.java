@@ -52,7 +52,8 @@ public class User implements UserDetails{
 	@Transient
 	private String confirmacaoSenha;
 	
-	@OneToMany(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="user",cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+//	@JoinColumn(name="user_id")
 	private List<Republica> republicas;
 
 	@Column(name = "nomeUsuario")
