@@ -33,18 +33,20 @@
 <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
 </head>
-<body class="bg-dark">
+<body class="">
 
 
 	<div class="sufee-login d-flex align-content-center flex-wrap">
 		<div class="container">
 			<div class="login-content">
-			
-
+				<div class="login-logo">
+                        <img class="align-content" th:src="@{/images/logo.png}" alt="" width="140">
+                </div>
 				<div class="login-form">
+				
 				<div align="center" th:if="${param.error}">
 							<p style="font-size: 20; color: #FF1C19;">Log in ou senha incorreto, por favor verifique</p>
-						</div>
+				</div>
 						
 					<form th:action="@{/login}" method="POST">
 						

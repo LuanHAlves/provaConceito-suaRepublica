@@ -2,6 +2,7 @@ package br.com.ufv.provaConceito.Models;
 
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -22,10 +23,14 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Transient;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+@SuppressWarnings({ "deprecation", "serial" })
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements UserDetails{
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -121,5 +126,49 @@ public class User {
 
 	public void setRepublicas(List<Republica> republicas) {
 		this.republicas = republicas;
+	}
+
+
+	@Override
+	public String getPassword() {
+		return this.senha;
+	}
+
+	
+	
+	
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public String getUsername() {
+		return this.nomeUsuario;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 }

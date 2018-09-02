@@ -10,6 +10,7 @@ import javax.validation.constraints.Email;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+@SuppressWarnings("deprecation")
 @Entity
 @Table(name= "Republica")
 public class Republica {
@@ -21,7 +22,7 @@ public class Republica {
 	
 	@Column(name = "email")
 	@Email(message = "*Insira um email valido")
-	@NotEmpty(message = "*Esta campo deve ser preenchido")
+	@NotEmpty(message = "*Este campo deve ser preenchido")
 	private String email;
 	
 	

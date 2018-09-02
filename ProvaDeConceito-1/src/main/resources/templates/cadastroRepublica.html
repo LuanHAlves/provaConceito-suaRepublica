@@ -1,45 +1,82 @@
-<!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
-	  <!-- xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"> -->
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
 <head>
-	<title>Cadastro</title>
-</head>
-	<body>
-		
-		<header>
-			<h3>Cadastro de República</h3>
-		</header>
-		
-		<form th:action = "@{/cadastroRepublica}" th:object = "${republica}" method="POST">
-		
-			<label>Nome:</label>
-		    <input th:field="*{nome}" type="text" name="nome_republica" id="nome_republica">
-		    <br/>
-		    
-			<label>Email:</label>
-			<input th:field = "*{email}" type="email" name="username" id="username">
-			<br>
-			
-			<label>Endereco:</label>
-			<input th:field = "*{endereco}" type="text" name="enderco" id="endereco">
-			<br>
-			
-			<label>Lotacao:</label>
-			<input th:field = "*{lotacao}" type="number" name="lotacao" id="lotacao">
-			<br>
-			
-			<label>Valor das Despesas:</label>
-			<input th:field = "*{valorDespesas}" type="number" name="valorDespesas" id="valorDespesas">
-			<br>
-			
-			<label>Valor do Alugel:</label>
-			<input th:field ="*{valorAluguel}" type="number" name="valorAluguel" id="valorAluguel">
-			<br>
-			<br>
-			<button type="submit">Cadastrar sua republica</button>
-			
-		</form>
-	
-	</body>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cadastro</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="apple-touch-icon" th:href="@{/apple-icon.png}">
+    <link rel="shortcut icon" th:href="@{/favicon.ico}">
+
+    <link rel="stylesheet" th:href="@{/assets/css/normalize.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/themify-icons.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/flag-icon.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/cs-skin-elastic.css}">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" th:href="@{/assets/scss/style.css}">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
+</head>
+<body class="">
+
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+               <div class="login-logo">
+                        <img class="align-content" th:src="@{/images/logo.png}" alt=""width="140">
+                </div> 
+                <div class="login-form">
+                    <form th:action="@{/cadastroRepublica}" method="post" th:object="${republica}">
+                        <div class="form-group">
+                            <label>Nome da república</label>
+                            <input type="text" th:field="*{nome}" class="form-control" placeholder="Nome da república">
+                        </div>
+                        <div class="form-group" >
+                            <label>Endereço de e-mail</label>
+                            <input type="email" th:field="*{email}" class="form-control" placeholder="Endereço de e-mail">
+                        </div>
+                        <div class="form-group">
+                            <label>Lotação</label>
+                            <input type="number" th:field="*{lotacao}"class="form-control" placeholder="lotação">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Valor das desesas</label>
+                            <input type="number" th:field="*{valorDespesas}"class="form-control" placeholder="Despesas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Valor do aluguel</label>
+                            <input type="number" th:field="*{valorAluguel}"class="form-control" placeholder="Aluguel">
+                        </div>
+            
+                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Registre sua republica</button>
+                        <div class="register-link m-t-15 text-center">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script th:src="@{/assets/js/vendor/jquery-2.1.4.min.js}"></script>
+    <script th:src="@{/assets/js/popper.min.js}"></script>
+    <script th:src="@{/assets/js/plugins.js}"></script>
+    <script th:src="@{/assets/js/main.js}"></script>
+
+
+</body>
 </html>

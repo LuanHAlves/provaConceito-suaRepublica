@@ -29,15 +29,15 @@
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
 </head>
-<body class="bg-dark">
+<body class="">
 
 
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
             <div class="login-content">
-               <!--  <div class="login-logo">
-                        <img class="align-content" th:src="@{/images/logo.png}" alt="">
-                </div> -->
+               <div class="login-logo">
+                        <img class="align-content" th:src="@{/images/logo.png}" alt="" width="140">
+                </div>
                 <div class="login-form">
                     <form th:action="@{/registro}" method="post" th:object="${user}">
                         <div class="form-group">

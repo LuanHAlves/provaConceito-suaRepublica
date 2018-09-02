@@ -6,6 +6,9 @@ import java.util.HashSet;
 import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +21,7 @@ import br.com.ufv.provaConceito.repository.UserRepository;
 
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService, UserDetailsService{
 
 	@Autowired
 	private UserRepository userRepository;
@@ -64,6 +67,18 @@ public class UserServiceImpl implements UserService{
         Role userRole = roleRepository.findByRole("ADMIN");
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
 		entityManager.merge(user);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		User user = userRepository.findByNomeUsuario(username);
+		
+		if(user == null){
+			System.out.println("login errado");
+			throw new UsernameNotFoundException("Usuario não encontrado!");
+		}
+		System.out.println("login ok");
+		return user;
 	}
 
 }
