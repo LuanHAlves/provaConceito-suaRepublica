@@ -1,5 +1,7 @@
 package br.com.ufv.provaConceito.Controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,19 @@ public class RepublicaFrontController {
 	@Autowired
 	UserService userService;
 	
+	@RequestMapping(value = {"/listaRepublica"}, method = RequestMethod.GET)
+	public ModelAndView listaRepublica() {
+		ModelAndView modelAndView = new ModelAndView();
+		
+		List<Republica> republicas = republicaRepo.getRepublicaRepository();
+		
+		modelAndView.addObject("republicas", republicas);
+		modelAndView.setViewName("listaRepublica");
+		return modelAndView;
+		
+	}
+	
+	
 	@RequestMapping(value = { "/cadastroRepublica" }, method = RequestMethod.GET)
 	public ModelAndView cadastroRepublica() {
 		Republica republica = new Republica();
@@ -36,6 +51,7 @@ public class RepublicaFrontController {
 
 		return modelAndView;
 	}
+	
 	
 	@RequestMapping(value = {"/cadastroRepublica"}, method = RequestMethod.POST)
 	public ModelAndView cadastrarRepublica(@Valid Republica republica, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
@@ -53,10 +69,28 @@ public class RepublicaFrontController {
 								republica.getValorDespesas(),
 								user.getId()
 		);
-		
-//		republicaRepo.save(republica);
 		modelAndView.setViewName("redirect:/cadastroRepublica");
-			
+		
+		/*
+		 * - INICIO
+		 * Imprime no console as republicas cadastrados no banco de dados.
+		 * -->não tem ligacao com o front-end.
+		 */
+		List<Republica> republicas = republicaRepo.getRepublicaRepository();
+		System.out.println("Lista de Republicas no BD");
+		
+		for (Republica _republica : republicas) {
+			System.out.printf("Proprietario: %s - Nome: %s - Email: %s\n\n", 
+							  _republica.getUser().getNomeUsuario(),
+							  _republica.getNome(),
+							  _republica.getEmail()
+			);
+		}
+		/*
+		 * - FIM 
+		 */
+		
+		
 		return modelAndView;
 	}
 }

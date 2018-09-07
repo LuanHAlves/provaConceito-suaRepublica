@@ -1,0 +1,78 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+
+<html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Log In - SuaRepublica</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="apple-touch-icon" th:href="@{/apple-icon.png}">
+<link rel="shortcut icon" th:href="@{/favicon.ico}">
+
+<link rel="stylesheet" th:href="@{/assets/css/normalize.css}">
+<link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/themify-icons.css}">
+<link rel="stylesheet" th:href="@{/assets/css/flag-icon.min.css}">
+<link rel="stylesheet" th:href="@{/assets/css/cs-skin-elastic.css}">
+<link rel="stylesheet" th:href="@{/assets/scss/style.css}">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800"
+	rel='stylesheet' type='text/css'>
+
+
+</head>
+<body class="">
+
+
+	<div class="sufee-login d-flex align-content-center flex-wrap">
+		<div class="container">
+			<div class="login-logo">
+                       <img class="align-content" th:src="@{/images/logo.png}" alt="" width="140">
+            </div>
+            <h3>Lista de Republicas</h3><br>
+			<table class="container">
+				<thead>
+					<tr>
+						<th>Nome da Republica</th>
+						<th>Proprietário</th>
+						<th>Endereço</th>
+						<th>Num. Vagas</th>
+						<th>Valor do Aluguel</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="republica : ${republicas}">
+						<td><span th:text="${republica.nome}"></span></td>
+						<td><span th:text="${republica.user.nomeUsuario}"></span></td>
+						<td><span th:text="${republica.endereco}"></span></td>
+						<td><span th:text="${republica.lotacao}"></span></td>
+						<td><span th:text="${republica.valorAluguel}"></span></td>
+					</tr>
+				</tbody>
+				
+			</table>
+			<div align="center">
+            	<br><a href="/cadastroRepublica" class="btn btn-success btn-flat m-b-30 m-t-30">Cadastrar Republica</a>
+         	</div>
+		</div>
+	</div>
+
+
+	<script th:src="@{/assets/js/vendor/jquery-2.1.4.min.js}"></script>
+	<script th:src="@{/assets/js/popper.min.js}"></script>
+	<script th:src="@{/assets/js/plugins.js}"></script>
+	<script th:src="@{/assets/js/main.js}"></script>
+
+
+</body>
+</html>

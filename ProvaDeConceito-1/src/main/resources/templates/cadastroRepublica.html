@@ -41,35 +41,38 @@
                     <form th:action="@{/cadastroRepublica}" method="post" th:object="${republica}">
                         <div class="form-group">
                             <label>Nome da república</label>
-                            <input type="text" th:field="*{nome}" class="form-control" placeholder="Nome da república">
+                            <input type="text" th:field="*{nome}" class="form-control" placeholder="Nome da república" required="required">
                         </div>
                         <div class="form-group" >
                             <label>Endereço</label>
-                            <input type="text" th:field="*{endereco}" class="form-control" placeholder="Endereço">
+                            <input type="text" th:field="*{endereco}" class="form-control" placeholder="Endereço" required="required">
                         </div>
                         <div class="form-group" >
                             <label>Endereço de e-mail</label>
-                            <input type="email" th:field="*{email}" class="form-control" placeholder="Endereço de e-mail">
+                            <input type="email" th:field="*{email}" class="form-control" placeholder="Endereço de e-mail" required="required">
                         </div>
                         <div class="form-group">
                             <label>Lotação</label>
-                            <input type="number" th:field="*{lotacao}"class="form-control" placeholder="lotação">
+                            <input type="number" th:field="*{lotacao}"class="form-control" placeholder="lotação" required="required">
                         </div>
                         
                         <div class="form-group">
                             <label>Valor das desesas</label>
-                            <input type="number" th:field="*{valorDespesas}"class="form-control" placeholder="Despesas">
+                            <input type="number" th:field="*{valorDespesas}"class="form-control" placeholder="Despesas" required="required">
                         </div>
                         
                         <div class="form-group">
                             <label>Valor do aluguel</label>
-                            <input type="number" th:field="*{valorAluguel}"class="form-control" placeholder="Aluguel">
+                            <input type="number" th:field="*{valorAluguel}"class="form-control" placeholder="Aluguel" required="required">
                         </div>
             
                         <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Registre sua republica</button>
                         <div class="register-link m-t-15 text-center">
                         </div>
                     </form>
+                    <div>
+            			<a href="/listaRepublica" class="btn btn-success btn-flat m-b-30 m-t-30">Lista de republicas</a>
+        			</div>
                 </div>
             </div>
         </div>

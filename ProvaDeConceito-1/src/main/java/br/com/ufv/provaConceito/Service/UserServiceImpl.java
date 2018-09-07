@@ -74,10 +74,10 @@ public class UserServiceImpl implements UserService, UserDetailsService{
 		User user = userRepository.findByNomeUsuario(username);
 		
 		if(user == null){
-			System.out.println("login errado");
+			System.out.println("login errado");//teste falha login
 			throw new UsernameNotFoundException("Usuario não encontrado!");
 		}
-		System.out.println("login ok");
+		System.out.println("login ok"); // teste sucesso login
 		return user;
 	}
 

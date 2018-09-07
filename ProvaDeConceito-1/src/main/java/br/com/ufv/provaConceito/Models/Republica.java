@@ -59,7 +59,9 @@ public class Republica {
 		this.valorAluguel = valorAluguel;
 	}
 	
-	
+	public User getUser() {
+		return user;
+	}
 	public int getId() {
 		return id;
 	}
